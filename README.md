@@ -12,7 +12,7 @@
 - 管理者によるユーザーごとのタスク一覧表示機能
 
 ## ER図
-<!-- 残件 -->
+![ER Diagram](./images/TaskViewer_ER_diagram.png)
 
 ## 環境構築手順
 1. リポジトリをクローン
