@@ -4,9 +4,9 @@
     <h1 class="page-title">タスク一覧</h1>
 
     {{-- コメント表示（登録・編集・削除後） --}}
-    @if (session('comment'))
+    @if (session('success'))
         <div class="alert alert-success">
-            {{ session('comment') }}
+            {{ session('success') }}
         </div>
     @endif
 
@@ -31,7 +31,11 @@
         <tbody>
             @foreach ($tasks as $task)
                 <tr>
-                    <td style="font-weight: bold;">{{ $task->title }}</td>
+                    <td style="font-weight: bold;">
+                        <a href="{{ route('tasks.show', $task) }}" class="task-link">
+                            {{ $task->title }}
+                        </a>
+                    </td>
 
                     {{-- 優先度（例：高・中・低） --}}
                     <td>

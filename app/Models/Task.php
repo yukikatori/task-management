@@ -18,6 +18,7 @@ class Task extends Model
         'priority',
         'due_date',
         'completed_at',
+        'user_id'
     ];
 
     public function user(): BelongsTo

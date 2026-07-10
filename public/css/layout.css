@@ -1,0 +1,31 @@
+.header {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    height: 60px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    display: flex;
+    align-items: left;
+}
+
+.logo {
+    object-fit: contain;
+}
+
+.header-right a,
+.logout-btn {
+    margin-left: 15px;
+    margin-right: 15px;
+    color: #333;
+    font-weight: bold;
+}
+
+.header-right a:hover,
+.logout-btn:hover {
+    color: #007bff;
+}
