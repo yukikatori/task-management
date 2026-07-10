@@ -15,6 +15,7 @@ class TaskController extends Controller
     public function index(): View
     {
         $tasks = auth()->user()->tasks()
+            ->where('completed_at', null)
             ->with('categories')
             ->orderBy('created_at', 'desc')
             ->paginate(10);
@@ -59,6 +60,8 @@ class TaskController extends Controller
 
     public function edit(Task $task): View
     {
+        $this->authorize('update', $task);
+
         $task->load('categories');
 
         $categories = Category::orderBy('created_at', 'desc')
@@ -69,6 +72,8 @@ class TaskController extends Controller
 
     public function update(UpdateTaskRequest $request, Task $task): RedirectResponse
     {
+        $this->authorize('update', $task);
+
         $validated = $request->validated();
 
         $task->update([
@@ -83,5 +88,40 @@ class TaskController extends Controller
         return redirect()
             ->route('tasks.index')
             ->with('success', 'タスクを編集しました');
+    }
+
+    public function destroy(Task $task): RedirectResponse
+    {
+        $this->authorize('delete', $task);
+
+        $task->delete();
+
+        return redirect()
+            ->route('tasks.index')
+            ->with('success', 'タスクを削除しました');
+    }
+
+    public function complete(Task $task): RedirectResponse
+    {
+        $this->authorize('complete', $task);
+
+        $task->update([
+            'completed_at' => now(),
+        ]);
+
+        return redirect()
+            ->route('tasks.index')
+            ->with('success', 'タスクを完了しました');
+    }
+
+    public function finished(): View
+    {
+        $tasks = auth()->user()->tasks()
+            ->whereNotNull('completed_at')
+            ->with('categories')
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+
+        return view('tasks.finished', compact('tasks'));
     }
 }

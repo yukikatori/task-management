@@ -34,6 +34,7 @@ class Task extends Model
     protected $casts = [
         'priority' => Priority::class,
         'due_date' => 'datetime',
+        'completed_at' => 'datetime',
     ];
 
     public function getPriorityLabelAttribute(): string
