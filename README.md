@@ -9,7 +9,6 @@
 - カテゴリCRUD（登録・編集・削除・一覧表示）
 - 公開 API（一覧、表示）
 - Sanctum による API 認証（登録、編集、削除）
-- 管理者によるユーザーごとのタスク一覧表示機能
 
 ## ER図
 ![ER Diagram](./images/TaskViewer_ER_diagram.png)

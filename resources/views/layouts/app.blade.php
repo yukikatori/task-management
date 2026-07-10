@@ -14,7 +14,7 @@
 
         <nav class="header-right">
             <a href="{{ route('tasks.index') }}">タスク一覧</a>
-            <a href="{{ route('categories.index') }}">カテゴリー一覧</a>
+            <a href="{{ route('categories.index') }}">カテゴリ一覧</a>
             @auth
                 <form method="POST" action="{{ route('logout') }}" style="display:inline;">
                     @csrf

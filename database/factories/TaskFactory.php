@@ -21,7 +21,7 @@ class TaskFactory extends Factory
         $faker = \Faker\Factory::create('ja_JP');
 
         return [
-            'title' => $faker->sentence(3),
+            'title' => $faker->realText(10),
             'description' => $faker->realText(20),
             'priority' => $faker->randomElement(Priority::cases()),
             'due_date' => $faker->dateTimeBetween('now', '+1 week'),

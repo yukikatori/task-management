@@ -5,6 +5,7 @@ body {
     margin: 0;
 }
 
+/* ヘッダー */
 .header {
     background-color: #fff;
     border-bottom: 1px solid #ddd;
@@ -28,7 +29,6 @@ body {
 .logout-btn {
     margin-left: 15px;
     margin-right: 15px;
-    text-decoration: underline;
     color: #333;
     font-weight: bold;
 }
@@ -38,6 +38,7 @@ body {
     color: #007bff;
 }
 
+/* ログイン、ユーザー登録画面 */
 .main-content {
     max-width: 960px;
     margin: 20px auto;
@@ -106,4 +107,168 @@ input {
     font-size: 0.9rem;
     margin-top: 4px;
     font-weight: bold;
+}
+
+/* タスク一覧ページ */
+
+/* ページタイトル */
+.page-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* 上部ボタン */
+.top-actions {
+    margin-bottom: 20px;
+}
+
+.top-actions .btn-primary,
+.top-actions .btn-secondary {
+    padding: 8px 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.btn-primary {
+    background: #007bff;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+}
+
+/* テーブル */
+.task-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+.task-table th,
+.task-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.task-table th {
+    background: #f2f2f2;
+    font-weight: bold;
+}
+
+/* 操作ボタン */
+.btn-success,
+.btn-danger {
+    margin: 5px 0;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.1s ease, opacity 0.2s ease;
+}
+
+.btn-warning {
+    text-decoration: none;
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    margin: 5px 0;
+    padding: 0px 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.1s ease, opacity 0.2s ease;
+}
+
+.btn-success {
+    background: #28a745;
+    color: #fff;
+}
+
+.btn-success:hover {
+    background: #218838;
+}
+
+.btn-warning {
+    background: #ffc107;
+    color: #fff;
+}
+
+.btn-warning:hover {
+    background: #e0a800;
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background: #c82333;
+}
+
+/* 優先度バッジ */
+.priority-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.priority-high {
+    background: #e74c3c;
+}
+
+.priority-medium {
+    background: #f1c40f;
+    color: #333;
+}
+
+.priority-low {
+    background: #2ecc71;
+}
+
+/* カテゴリバッジ */
+.category-badge {
+    background: #e0e0e0;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-right: 4px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    display: inline-block;
+}
+
+/* コメント（成功メッセージ） */
+.alert-success {
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    color: #155724;
+}
+
+/* ページネーション */
+.pagination-area {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination-area nav {
+    display: inline-block;
 }
