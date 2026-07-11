@@ -9,7 +9,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/tasks/{task}/complete', [TaskController::class, 'complete'])->name('tasks.complete');
     Route::resource('tasks', TaskController::class);
     
-    Route::resource('categories', CategoryController::class);
+    Route::resource('categories', CategoryController::class)->except('show');
 });
 
 

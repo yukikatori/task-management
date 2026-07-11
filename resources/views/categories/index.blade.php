@@ -10,6 +10,12 @@
         </div>
     @endif
 
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+
     {{-- 上部ボタン --}}
     <div class="top-actions">
         <a href="{{ route('categories.create') }}" class="btn btn-primary">カテゴリ登録</a>
@@ -20,7 +26,7 @@
         <thead>
             <tr>
                 <th>カテゴリ名</th>
-                <th class="text-center">操作</th>
+                <th class="text-center"></th>
             </tr>
         </thead>
 
@@ -29,25 +35,20 @@
                 <tr>
                     <td style="font-weight: bold;">
                             {{ $category->name}}
-                        </a>
                     </td>
                     {{-- 操作ボタン --}}
                     <td class="text-center">
 
                         {{-- 編集 --}}
-                        @can('update', $category)
                             <a href="{{ route('categories.edit', $category) }}" class="btn btn-warning">編集</a>
-                        @endcan
 
                         {{-- 削除 --}}
-                        @can('delete', $category)
                             <form action="{{ route('categories.destroy', $category) }}" method="POST" class="inline">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger"
                                     onclick="return confirm('削除しますか？')">削除</button>
                             </form>
-                        @endcan
 
                     </td>
                 </tr>

@@ -1,4 +1,4 @@
-/* タスク一覧・完了タスク一覧 */
+/* タスク一覧・完了タスク一覧・カテゴリ一覧 */
 /* ページタイトル */
 .page-title {
     font-size: 24px;
@@ -151,7 +151,7 @@
     display: inline-block;
 }
 
-/* コメント（成功メッセージ） */
+/* コメント */
 .alert-success {
     background: #d4edda;
     border: 1px solid #c3e6cb;
@@ -159,6 +159,15 @@
     margin-bottom: 20px;
     border-radius: 4px;
     color: #155724;
+}
+
+.alert-danger {
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    color: #721c24;
 }
 
 /* ページネーション */
@@ -256,7 +265,7 @@
     background: #0056b3;
 }
 
-/* タスク登録・編集 */
+/* タスク登録/編集・カテゴリ登録/編集 */
 .task-form {
     background-color: #fff;
     padding: 20px;
