@@ -3,6 +3,9 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Auth\AuthenticationException;
+use Illuminate\Auth\Access\AuthorizationException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -21,10 +24,28 @@ class Handler extends ExceptionHandler
     /**
      * Register the exception handling callbacks for the application.
      */
-    public function register(): void
+    public function render($request, Throwable $exception)
     {
-        $this->reportable(function (Throwable $e) {
-            //
-        });
+        if ($exception instanceof ModelNotFoundException) {
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'error' => '指定されたタスクが見つかりません',
+                ], 404);
+            }
+
+            return redirect()->guest(route('login'));
+        }
+
+        if ($exception instanceof AuthenticationException) {
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'error' => '認証情報が正しくありません',
+                ], 401);
+            }
+
+            return redirect()->guest(route('login'));
+        }
+
+        return parent::render($request, $exception);
     }
 }

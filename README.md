@@ -7,8 +7,7 @@
 - 認証機能
 - タスクCRUD（登録・編集・削除・一覧表示）
 - カテゴリCRUD（登録・編集・削除・一覧表示）
-- 公開 API（一覧、表示）
-- Sanctum による API 認証（登録、編集、削除）
+- Sanctum による API 認証（一覧、表示、登録、編集、削除）
 
 ## ER図
 ![ER Diagram](./images/TaskViewer_ER_diagram.png)
